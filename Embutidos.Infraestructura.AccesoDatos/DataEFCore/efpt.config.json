@@ -6,7 +6,7 @@
    "IncludeConnectionString": true,
    "ModelNamespace": null,
    "OutputContextPath": null,
-   "OutputPath": "C:\\Users\\Administrador\\Desktop\\Proyecto en Clase-Embutidos\\APIEmbutidos\\Embutidos.Dominio.Modelo\\Entidades ",
+   "OutputPath": "C:\\Users\\Administrador\\Desktop\\S3_TanyaArias_Tarea#3\\Proyecto en Clase-Embutidos\\APIEmbutidos\\Embutidos.Dominio.Modelo\\Entidades",
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "Embutidos.Infraestructura.AccesoDatos",
    "Schemas": null,

@@ -13,18 +13,16 @@ namespace Embutidos.Aplicacion.Servicios
     {
         [OperationContract]
         Task AddProductoAsync(Productoo nuevoproducto);
-        [OperationContract]
-        Task AddAsync(Productoo entidad);
-
+        
         [OperationContract]
         Task DeleteProductoAsync(int id);
         [OperationContract]
         Task UpdateProductoAsync(Productoo entidad);
         [OperationContract]
-        Task<IEnumerable<Productoo>> GetAllProductosAsync();
+        Task<IEnumerable<Productoo>> GetAllProductoAsync();
 
         [OperationContract]
-        Task<Productoo> GetProductoByIdAsync(int id);
+        Task<Productoo> GetByIdProductoAsync(int id);
       
     }
 }

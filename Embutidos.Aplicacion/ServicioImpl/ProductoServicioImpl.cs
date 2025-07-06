@@ -13,33 +13,27 @@ namespace Embutidos.Aplicacion.ServicioImpl
     public class ProductoServicioImpl : IProductoServicio
     {
         private IProductoRepositorio productoRepositorio;
-
         public ProductoServicioImpl(EmbutidosDBContext _embutidosDBContext)
         {
             this.productoRepositorio = new ProductoRepositorioImpl(_embutidosDBContext);
-
-        }
-
-        public async Task AddAsync(Productoo entidad)
-        {
-            await productoRepositorio.AddAsync(entidad);
         }
         public async Task AddProductoAsync(Productoo nuevoproducto)
-         {
-        await productoRepositorio.AddAsync(nuevoproducto);
-         }
+        {
+            await productoRepositorio.AddAsync(nuevoproducto);
+
+        }
 
         public async Task DeleteProductoAsync(int id)
         {
             await productoRepositorio.DeleteAsync(id);
         }
 
-        public async Task<IEnumerable<Productoo>> GetAllProductosAsync()
+        public async Task<IEnumerable<Productoo>> GetAllProductoAsync()
         {
             return await productoRepositorio.GetAllAsync();
         }
 
-        public Task<Productoo> GetProductoByIdAsync(int id)
+        public Task<Productoo> GetByIdProductoAsync(int id)
         {
             return productoRepositorio.GetByIdAsync(id);
         }
