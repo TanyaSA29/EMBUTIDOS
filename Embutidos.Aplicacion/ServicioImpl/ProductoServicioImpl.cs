@@ -36,9 +36,14 @@ namespace Embutidos.Aplicacion.ServicioImpl
             return productoRepositorio.GetByIdAsync(id);
         }
 
-        public Task<List<Productoo>> ListarProductoActivos()
+        public Task<List<Productoo>> ListarProductosActivos()
         {
-            return productoRepositorio.ListarProductoActivos();
+            return productoRepositorio.ListarProductosActivos();
+        }
+
+        public Task<List<Productoo>> ListarProductosNombres(string nombres)
+        {
+            return productoRepositorio.ListarProductosNombres(nombres);
         }
 
         public async Task UpdateProductoAsync(Productoo entidad)

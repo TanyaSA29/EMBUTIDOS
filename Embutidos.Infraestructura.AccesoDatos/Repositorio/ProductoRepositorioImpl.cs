@@ -17,7 +17,7 @@ namespace Embutidos.Infraestructura.AccesoDatos.Repositorio
             _dbContext = dbContext;
         }
 
-        public async Task<List<Productoo>> ListarProductoActivos()
+        public async Task<List<Productoo>> ListarProductosActivos()
         {
             try
             {
@@ -33,6 +33,22 @@ namespace Embutidos.Infraestructura.AccesoDatos.Repositorio
                 throw new Exception("Error al listar productos activos: " + ex.Message);
             }
 
+        }
+        public Task<List<Productoo>> ListarProductosNombres(string nombres)
+        {
+            try
+            {
+                var result = from prod in _dbContext.Productoo
+                             where prod.nombre == nombres
+                             select prod;
+                return result.ToListAsync();
+
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar productos activos: " + ex.Message);
+            }
         }
     }
 }

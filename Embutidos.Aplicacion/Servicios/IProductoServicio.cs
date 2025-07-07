@@ -23,6 +23,9 @@ namespace Embutidos.Aplicacion.Servicios
         [OperationContract]
         Task<Productoo> GetByIdProductoAsync(int id);
         [OperationContract]
-        Task<List<Productoo>>ListarProductoActivos();
+        Task<List<Productoo>>ListarProductosActivos();
+
+        [OperationContract]
+        public Task<List<Productoo>> ListarProductosNombres(string nombres);
     }
 }

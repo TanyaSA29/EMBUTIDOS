@@ -32,13 +32,23 @@ namespace TestEmbutidosSQL
              /*var result = await _productoServicio.GetAllProductoAsync();
              Console.WriteLine(result.ToList());
              Assert.Pass();
-         }*/
+         }
+
+       public async Task ListarProductos()
+
+        {
+            var productos = _productoServicio.ListarProductosActivos();
+        }*/
 
         public async Task ListarProductos()
 
         {
-            var productos = _productoServicio.ListarProductoActivos();
+            var productos = _productoServicio.ListarProductosNombres("Embutidos");
         }
+
+
+
+
 
         [TearDown]
         public void Limpiar()
