@@ -11,4 +11,8 @@
     <Folder Include="ObjetoValor\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Embutidos.Aplicacion.DTO\Embutidos.Aplicacion.DTO.csproj" />
+  </ItemGroup>
+
 </Project>

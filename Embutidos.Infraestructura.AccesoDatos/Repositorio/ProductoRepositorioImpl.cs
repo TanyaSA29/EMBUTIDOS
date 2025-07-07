@@ -1,4 +1,5 @@
-﻿using Embutidos.Dominio.Modelo.Abstracciones;
+﻿using Embutidos.Aplicacion.DTO.DTOs;
+using Embutidos.Dominio.Modelo.Abstracciones;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,33 @@ namespace Embutidos.Infraestructura.AccesoDatos.Repositorio
                              where prod.nombre == nombres
                              select prod;
                 return result.ToListAsync();
+
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar productos activos: " + ex.Message);
+            }
+        }
+
+
+        public async Task<List<ProductoTipoProductoDTO>> ListarProductosPorTipo()
+        {
+            try
+            {
+                var resultado =(from prod in _dbContext.Productoo
+                             join tipo in _dbContext.tipo_producto
+                             on prod.id_tipo_producto equals tipo.id_tipo_producto
+                             group prod by tipo.nombre into grupo
+                             select new ProductoTipoProductoDTO
+                             {
+                                 TipoProducto = grupo.Key,
+                                 NombresProductos = grupo.Select(c => c.nombre).ToList()
+                             }).ToListAsync();
+
+                return await resultado;
+
+
 
             }
 

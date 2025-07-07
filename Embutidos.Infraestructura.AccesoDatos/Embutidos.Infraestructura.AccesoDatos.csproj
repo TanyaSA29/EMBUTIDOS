@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Embutidos.Aplicacion.DTO\Embutidos.Aplicacion.DTO.csproj" />
     <ProjectReference Include="..\Embutidos.Dominio.Modelo\Embutidos.Dominio.Modelo.csproj" />
     <ProjectReference Include="..\Embutidos.Dominio.Servicio\Embutidos.Dominio.Servicio.csproj" />
   </ItemGroup>

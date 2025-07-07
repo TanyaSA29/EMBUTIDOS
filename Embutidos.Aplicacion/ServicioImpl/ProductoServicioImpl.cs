@@ -1,4 +1,5 @@
-﻿using Embutidos.Aplicacion.Servicios;
+﻿using Embutidos.Aplicacion.DTO.DTOs;
+using Embutidos.Aplicacion.Servicios;
 using Embutidos.Dominio.Modelo.Abstracciones;
 using Embutidos.Infraestructura.AccesoDatos;
 using Embutidos.Infraestructura.AccesoDatos.Repositorio;
@@ -44,6 +45,11 @@ namespace Embutidos.Aplicacion.ServicioImpl
         public Task<List<Productoo>> ListarProductosNombres(string nombres)
         {
             return productoRepositorio.ListarProductosNombres(nombres);
+        }
+
+        public Task<List<ProductoTipoProductoDTO>> ListarProductosPorTipo()
+        {
+            return productoRepositorio.ListarProductosPorTipo();
         }
 
         public async Task UpdateProductoAsync(Productoo entidad)

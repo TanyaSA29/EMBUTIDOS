@@ -1,4 +1,5 @@
-﻿using Embutidos.Infraestructura.AccesoDatos;
+﻿using Embutidos.Aplicacion.DTO.DTOs;
+using Embutidos.Infraestructura.AccesoDatos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,5 +28,7 @@ namespace Embutidos.Aplicacion.Servicios
 
         [OperationContract]
         public Task<List<Productoo>> ListarProductosNombres(string nombres);
+
+        public Task<List<ProductoTipoProductoDTO>> ListarProductosPorTipo ();
     }
 }

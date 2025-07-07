@@ -38,12 +38,25 @@ namespace TestEmbutidosSQL
 
         {
             var productos = _productoServicio.ListarProductosActivos();
-        }*/
+        }
 
         public async Task ListarProductos()
 
         {
             var productos = _productoServicio.ListarProductosNombres("Embutidos");
+        }*/
+
+        public async Task ListarProductos()
+        {
+            var productos = await _productoServicio.ListarProductosPorTipo();
+            foreach (var item in productos)
+            {
+                Console.WriteLine(item.TipoProducto);
+                foreach (var item2 in item.NombresProductos)
+                {
+                    Console.WriteLine($"{item2}");
+                }
+            }
         }
 
 
