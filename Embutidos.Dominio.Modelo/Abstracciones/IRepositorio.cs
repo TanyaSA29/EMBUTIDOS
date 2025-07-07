@@ -12,7 +12,7 @@ namespace Embutidos.Dominio.Modelo.Abstracciones
         Task DeleteAsync(int id); //Eliminar 
         Task UpdateAsync(T entidad); //Actualizar   
         Task<IEnumerable<T>> GetAllAsync(); //select +from
-        Task <T> GetByIdAsync(int id); //buscar por id
+        Task <T> GetByIdAsync(int  id); //buscar por id
 
                                       
     }

@@ -20,9 +20,7 @@ namespace Embutidos.Aplicacion.ServicioImpl
         public async Task AddProductoAsync(Productoo nuevoproducto)
         {
             await productoRepositorio.AddAsync(nuevoproducto);
-
         }
-
         public async Task DeleteProductoAsync(int id)
         {
             await productoRepositorio.DeleteAsync(id);
@@ -36,6 +34,11 @@ namespace Embutidos.Aplicacion.ServicioImpl
         public Task<Productoo> GetByIdProductoAsync(int id)
         {
             return productoRepositorio.GetByIdAsync(id);
+        }
+
+        public Task<List<Productoo>> ListarProductoActivos()
+        {
+            return productoRepositorio.ListarProductoActivos();
         }
 
         public async Task UpdateProductoAsync(Productoo entidad)

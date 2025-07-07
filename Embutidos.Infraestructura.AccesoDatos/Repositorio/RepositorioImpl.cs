@@ -1,23 +1,17 @@
 ﻿using Embutidos.Dominio.Modelo.Abstracciones;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Embutidos.Infraestructura.AccesoDatos.Repositorio
 {
-    public class RepositorioImpl<T> : IRepositorio<T> where T : class
+    public class RepositorioImpl<T>: IRepositorio<T> where T : class
     {
-        private readonly EmbutidosDBContext _context;
+        private readonly EmbutidosDBContext _dbContext;
         private readonly DbSet<T> _dbSet;
 
-        public RepositorioImpl(EmbutidosDBContext context)
+        public RepositorioImpl(EmbutidosDBContext dbContext)
         {
-            _context = context;
-            _dbSet =context.Set<T>();
+            _dbContext = dbContext;
+            _dbSet = _dbContext.Set<T>();
         }
 
         public async Task AddAsync(T entidad)
@@ -25,25 +19,25 @@ namespace Embutidos.Infraestructura.AccesoDatos.Repositorio
             try
             {
                 await _dbSet.AddAsync(entidad);
-                await _context.SaveChangesAsync();
+                await _dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {
                 throw new Exception("Error No se pudo insertar registro" + ex.Message);
-            }  
+            }
         }
 
         public async Task DeleteAsync(int id)
         {
             try
             {
-               var entity = await GetByIdAsync(id);
-               _dbSet.Remove(entity);
-               await _context.SaveChangesAsync();
+                var entity = await GetByIdAsync(id);
+                _dbSet.Remove(entity);
+                await _dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {
-                
+
                 throw new Exception("Error No se pudo eliminar registro" + ex.Message);
             }
         }
@@ -64,7 +58,7 @@ namespace Embutidos.Infraestructura.AccesoDatos.Repositorio
         {
             try
             {
-                return await _dbSet.FindAsync();
+                return await _dbSet.FindAsync(id);
             }
             catch (Exception ex)
             {
@@ -75,8 +69,8 @@ namespace Embutidos.Infraestructura.AccesoDatos.Repositorio
         {
             try
             {
-               _dbSet.Update(entidad);
-                await _context.SaveChangesAsync();
+                _dbSet.Update(entidad);
+                await _dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {

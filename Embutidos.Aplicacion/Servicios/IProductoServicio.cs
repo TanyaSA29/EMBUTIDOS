@@ -20,9 +20,9 @@ namespace Embutidos.Aplicacion.Servicios
         Task UpdateProductoAsync(Productoo entidad);
         [OperationContract]
         Task<IEnumerable<Productoo>> GetAllProductoAsync();
-
         [OperationContract]
         Task<Productoo> GetByIdProductoAsync(int id);
-      
+        [OperationContract]
+        Task<List<Productoo>>ListarProductoActivos();
     }
 }

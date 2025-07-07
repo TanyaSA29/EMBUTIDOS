@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Embutidos.Dominio.Modelo.Abstracciones
 {
-    public interface IProductoRepositorio: IRepositorio<Productoo>
+    public interface IProductoRepositorio : IRepositorio<Productoo>
 
     {
-
+        public Task<List<Productoo>> ListarProductoActivos();
     }
 }
